@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
   // super simple arg check
   if (argc != 11) {
-    log_error("Wrong number of parameters");
+    log_error("Wrong number of parameters: %d received, 11 wanted", argc);
     return -1;
   }
 
