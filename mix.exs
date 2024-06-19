@@ -49,11 +49,11 @@ defmodule Scenic.Driver.Local.MixProject do
   defp deps do
     [
       {:input_event, "~> 1.0 or ~> 0.4"},
-      {:scenic, "~> 0.11.0"},
+      {:scenic, github: "seb3s/scenic", ref: "phenix-cairo"},
 
       # Tools
       {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:elixir_make, "~> 0.6 or ~> 0.7", runtime: false},
+      {:elixir_make, "~> 0.8.3", runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false}
     ]
