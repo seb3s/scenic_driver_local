@@ -237,8 +237,8 @@ defmodule Scenic.Driver.Local do
     Process.flag(:trap_exit, true)
 
     executable =
-      to_charlist(debugger) ++
-        ~c" " ++ :code.priv_dir(:scenic_driver_local) ++ @port ++ to_charlist(args)
+      if(debugger != "", do: to_charlist(debugger) ++ ~c" ", else: []) ++
+        :code.priv_dir(:scenic_driver_local) ++ @port ++ to_charlist(args)
 
     Logger.info("#{inspect(__MODULE__)}: #{inspect(executable)}")
 
