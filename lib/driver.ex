@@ -240,6 +240,8 @@ defmodule Scenic.Driver.Local do
       to_charlist(debugger) ++
         ~c" " ++ :code.priv_dir(:scenic_driver_local) ++ @port ++ to_charlist(args)
 
+    Logger.info("#{inspect(__MODULE__)}: #{inspect(executable)}")
+
     port = Port.open({:spawn, executable}, [:binary, {:packet, 4}])
 
     driver =
