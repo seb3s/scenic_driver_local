@@ -124,6 +124,12 @@ int device_init(const device_opts_t* p_opts,
   uint32_t height = cairo_image_surface_get_height(p_ctx->surface);
   size_t pix_count = width * height;
 
+  if (g_opts.debug_mode) {
+    log_info("cairo width %d", width);
+    log_info("cairo height %d", height);
+    log_info("cairo resolution: %d x %d, %d bpp", g_cairo_fb.var.xres, g_cairo_fb.var.yres, g_cairo_fb.var.bits_per_pixel);
+  }
+  
   switch (g_cairo_fb.var.bits_per_pixel)
   {
   case 8:
