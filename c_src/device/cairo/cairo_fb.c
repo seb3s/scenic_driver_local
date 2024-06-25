@@ -240,6 +240,11 @@ void render_cairo_surface_to_fb(scenic_cairo_ctx_t* p_ctx)
 
   size_t pix_count = width * height;
 
+  if (g_opts.debug_mode) {
+    log_info("cairo %s", __func__);
+    log_info("width -> %d, height -> %d, pix_count -> %d", width, height, pix_count);
+  }
+
   int cpp = 0;
   switch (g_cairo_fb.var.bits_per_pixel)
   {
@@ -328,6 +333,11 @@ void render_cairo_surface_to_fb(scenic_cairo_ctx_t* p_ctx)
 
   uint8_t* p_fb = fb + (y_offs * scr_xs + x_offs) * cpp;
   uint8_t* p_image = g_cairo_fb.rgb_buff.c;
+
+  if (g_opts.debug_mode) {
+    log_info("pic_xs -> %d, pic_ys -> %d, scr_xs -> %d, scr_ys -> %d", pic_xs, pic_ys, scr_xs, scr_ys);
+    log_info("xc -> %d, yc -> %d, fb_size -> %d", xc, yc, fb_size);
+  }
 
   for (uint32_t i = 0; i < yc; i++, p_fb += scr_xs * cpp, p_image += pic_xs * cpp)
     memcpy(p_fb, p_image, xc * cpp);
