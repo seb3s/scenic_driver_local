@@ -231,10 +231,10 @@ void device_begin_render(driver_data_t* p_data)
 
   // Paint surface to clear color
   cairo_set_source_rgba(p_ctx->cr,
-                        p_ctx->clear_color.red,
-                        p_ctx->clear_color.green,
-                        p_ctx->clear_color.blue,
-                        p_ctx->clear_color.alpha);
+                        p_ctx->clear_color.red / 255.0f,
+                        p_ctx->clear_color.green / 255.0f,
+                        p_ctx->clear_color.blue / 255.0f,
+                        p_ctx->clear_color.alpha / 255.0f);
   cairo_paint(p_ctx->cr);
 }
 

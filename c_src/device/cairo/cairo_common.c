@@ -28,10 +28,10 @@ scenic_cairo_ctx_t* scenic_cairo_init(const device_opts_t* p_opts,
 
   p_ctx->clear_color = (color_rgba_t){
     // black opaque
-    .red = 0.0,
-    .green = 0.0,
-    .blue = 0.0,
-    .alpha = 1.0
+    .red = 0,
+    .green = 0,
+    .blue = 0,
+    .alpha = 255
   };
 
   p_info->v_ctx = p_ctx;
@@ -58,10 +58,10 @@ void device_clear_color(float red, float green, float blue, float alpha)
 {
   scenic_cairo_ctx_t* p_ctx = (scenic_cairo_ctx_t*)g_device_info.v_ctx;
   p_ctx->clear_color = (color_rgba_t){
-    .red = red,
-    .green = green,
-    .blue = blue,
-    .alpha = alpha
+    .red = (uint8_t)red * 255.0f,
+    .green = (uint8_t)green * 255.0f,
+    .blue = (uint8_t)blue * 255.0f,
+    .alpha = (uint8_t)alpha * 255.0f,
   };
 }
 
