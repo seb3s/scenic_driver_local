@@ -53,7 +53,7 @@ defmodule Scenic.Driver.Local.MixProject do
 
       # Tools
       {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:elixir_make, "~> 0.8.3", runtime: false},
+      {:elixir_make, "~> 0.10.0", runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false}
     ]
